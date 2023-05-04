@@ -46,7 +46,7 @@ CREATE SCHEMA assignment_db.my_schema;
 - Then made a file format(`employee_csv_format`) for the csv with `FIELD_OPTIONALLY_ENCLOSED_BY` set to `"`. This tells that some values might have comma in them but to not treat the comma as field separator if the value is surrounded by double quotes.
 - Then created a table - `employees` and unloaded the csv file from the stage into it using `COPY INTO ... FROM (SELECT ...)`. Three other columns - `elt_ts` set to `DEFAULT CURRENT TIMESTAMP`, `elt_by` set to `DEFAULT 'LOCAL'` and `file_name` set to `METADATA$FILENAME` were also added while unloading.
 
-<img src = 'https://github.com/ds-cr/snowflakeAssgn/blob/main/photos/PUT.png' alt = 'put photo'>
+
 
 ```sql
 SELECT TOP 100 * FROM employees;

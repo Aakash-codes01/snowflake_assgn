@@ -56,7 +56,7 @@ SELECT TOP 100 * FROM employees;
 ```sql
 CREATE STAGE local_upload_csv;
 
-PUT file:///Users/dvsingla/mydox/snowflake/employees.csv @assignment_db.my_schema.local_upload_csv;
+PUT file:///Users/aks/mydox/snowflake/employees.csv @assignment_db.my_schema.local_upload_csv;
 LIST @local_upload_csv;
 
 CREATE FILE FORMAT employee_csv_format

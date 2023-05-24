@@ -10,7 +10,7 @@ loaded data into the tables using copy into statements. In one table, loaded fro
 Uploaded a parquet file to the stage location and infer the schema of the file. Created a file format called my_parquet_format, which holds data of format parquet. After this, created a stage called parquet_stage with holding my_parquet_format file format. Finally, query to infer about the schema.
 Created a select query on the staged parquet file without loading it into a Snowflake table.
 Created a masking policy on mobile number and applied it on developer role
-Amit review
+Rajkeshav review
 He had written a script is written in SQL language that is used to perform given queries in Snowflake. Below is the explanation of each query -
 
 He created three roles:

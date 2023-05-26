@@ -1,6 +1,6 @@
 
 
-## Rajkeshav review
+ ## Rajkeshav review
 He had written a script is written in SQL language that is used to perform given queries in Snowflake. Below is the explanation of each query -
 
 He created three roles:

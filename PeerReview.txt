@@ -1,16 +1,6 @@
 
-Created three roles named DEVELOPER, ADMIN and PII, and defined a hierarchy between them.
-Created a medium-sized warehouse named assignment_wh using the accountadmin role, and Granted all privileges on the warehouse to the ADMIN role. It also Granted the privilege to create databases on the account to the ADMIN role.
-Created a database named assignment_db and schema my_schema
-Created a table named EMPLOYEE_DATA to store CSV data. The table includes columns such as ID, FIRST_NAME, LAST_NAME, EMAIL, DEPARTMENT, MOBILE_NUMBER, CITY, etl_ts, etl_by, and file_name
-Created a file format called my_json_format and a variant version of the data, i.e., it transforms the data into JSON format. It also Created a table named employees_variant to store the variant version of the data.
-Created an internal stage named internal_stage, a file format called my_csv_format, and a storage integration object named s3_integration to access an S3 bucket. It also Granted all privileges on the integration object to the ADMIN role. Finally, it Created an external stage named external_stage to store CSV data in the S3 bucket.
-Created a file format called my_csv_format which holds data of format CSV. After this, created an internal stage called internal_stage with the holding my_csv_format file format. created a storage integration object called s3_integration with the holding S3 storage provider. Then, created an external stage called external_stage with holding my_csv_format file format and an S3 bucket URL.
-loaded data into the tables using copy into statements. In one table, loaded from the internal stage, and in another, loaded from the external. Created two tables called employee_internal_stage and employee_external_stage, respectively, for loading employee data from an internal stage and an external stage. Copied data into the respective tables from the corresponding stages, fetched the table data using metadata functions. Finally, runned a select query on the employee data to check whether they are loaded or not.
-Uploaded a parquet file to the stage location and infer the schema of the file. Created a file format called my_parquet_format, which holds data of format parquet. After this, created a stage called parquet_stage with holding my_parquet_format file format. Finally, query to infer about the schema.
-Created a select query on the staged parquet file without loading it into a Snowflake table.
-Created a masking policy on mobile number and applied it on developer role
-Rajkeshav review
+
+## Rajkeshav review
 He had written a script is written in SQL language that is used to perform given queries in Snowflake. Below is the explanation of each query -
 
 He created three roles:

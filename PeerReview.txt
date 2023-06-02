@@ -1,24 +1,42 @@
 
 
 Rajkeshav review
-He had written a script is written in SQL language that is used to perform given queries in Snowflake. Below is the explanation of each query -
+He had written a  SQL language that is used to perform given queries in Snowflake. Below is the explanation of each query -
 
-He created three roles:
-Admin
-Developer
-PII
-He granted the Admin role to the ACCOUNTADMIN role, the Developer role to the Admin role, and the PII role to the ACCOUNTADMIN role.
-He created a medium-sized data warehouse using the ACCOUNTADMIN role and grants all privileges on the warehouse to the Admin role.
-He created a database named "assignment_db" and a schema named "my_schema" inside the database, using the Admin role.
-He created a table named "EMPLOYEES_USING_EXT_STAGE" with columns for first name, last name, email, location, department, ELT timestamp, ELT by, and file name.
-He created an external stage named "my_ext_stage" that points to an S3 bucket and allows the Admin role to use it.
-He created a file format named "my_file_format" that specifies CSV format with a comma as the field delimiter and header row skipped.
-He loaded data from the external stage into a table named "EMPLOYEES_JSON" that has a single column named "emp_data" of type VARIANT.
-He created a table named "EMPLOYEES_VARIANT" that extracts data from the "emp_data" column and maps it to columns with appropriate data types.
-He loaded data from an internal stage named "EMPLOYEES_USING_INT_STAGE" into a table named "EMPLOYEES_USING_INT_STAGE" using the COPY INTO command.
-He created a file format named "my_parquet_ff" that specifies Parquet format.
-He created a stage named "my_parquet_stage" that points to an S3 bucket with Parquet files.
-He infered the schema of the Parquet file using the INFER_SCHEMA function and selects data from the stage.
-It creates a masking policy named "email_mask" that masks the email column of the "EMPLOYEES_USING_EXT_STAGE" table.
-He altered the "EMAIL" column of the "EMPLOYEES_EXT_STAGE" table to apply the masking policy.
-He granted usage on the warehouse to the Developer role and grants usage on the database and schema to the PII role using the ACCOUNTADMIN role to test masking policy.
+ ## Role Management:
+
+Roles (admin, developer, PII) are created using the CREATE ROLE statement.
+The admin role is granted to the accountadmin role.
+The developer role is granted to the admin role.
+The PII role is granted to the accountadmin role.
+
+ ## Warehouse Creation:
+The assignment_wh warehouse is created using the CREATE WAREHOUSE statement.
+The warehouse size, type, and other configurations are specified.
+
+ ## Database and Schema Creation:
+The assignment_db database is created using the CREATE DATABASE statement.
+The my_schema schema is created within the assignment_db database using the CREATE SCHEMA statement.
+
+ ## Table Creation:
+The employee table is created with columns first_name, last_name, email, phone, gender, department, job_title, years_of_experience, and salary.
+The in_employee table is created with similar columns, but with the first_name column defined as VARCHAR(255).
+
+ ## Staging and Data Loading:
+
+The internal_stage stage is created using the CREATE STAGE statement.
+The my_csv_format file format is created for CSV files using the CREATE FILE FORMAT statement.
+Data from the CSV file employees.csv.gz is loaded into the in_employee table using the COPY INTO statement and the my_csv_format file format.
+The external_stage stage is created for loading data from an external source.
+A storage integration (s3_integration) is created for accessing data from an S3 bucket.
+Data from the S3 bucket is loaded into the employee table using the COPY INTO statement and the s3_integration storage integration.
+
+ ## Masking Policies:
+
+Masking policies (hideEmail_mask and hidePhone_mask) are created to hide sensitive information in the in_employee table.
+The ALTER TABLE statement is used to apply the masking policies to the email and phone columns.
+
+ ## Role-Based Privileges:
+
+Privileges are granted to the developer role on the assignment_wh warehouse, ASSIGNMENT_DB database, MY_SCHEMA schema, and in_employee table.
+Privileges are granted to the PII role on the same objects as the developer role.

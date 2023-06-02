@@ -3,7 +3,7 @@
 Rajkeshav review
 He had written a  SQL language that is used to perform given queries in Snowflake. Below is the explanation of each query -
 
- ##Role Management:
+ ## Role Management:
 
 Roles (admin, developer, PII) are created using the CREATE ROLE statement.
 The admin role is granted to the accountadmin role.
